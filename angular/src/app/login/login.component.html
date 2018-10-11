@@ -1,0 +1,14 @@
+
+  <div *ngIf="loginAttempted | async">
+    <span style="color: red" *ngIf="!(loginSuccess | async)">User and/or password invalid!</span>
+    <span style="color: green" *ngIf="loginSuccess | async">Login success!</span>
+  </div>
+  <span>Username</span>
+  <input #username type="text" placeholder="Username"/>
+  <br />
+  <span>Password</span>
+  <input #password type="password" placeholder="password"/>
+  <br />
+  <button (click)="loginClick(username.value, password.value)">LOGIN</button>
+  <button (click)="loginClear()" *ngIf="loginAttempted | async">CLEAR</button>
+
